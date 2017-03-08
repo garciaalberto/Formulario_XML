@@ -2,7 +2,7 @@ var formElement=null;
 var numeroSecreto=null;
 var respuestaSelect=null;
 var respuestasCheckbox = [];
-var nota = 0;  //nota de la prueba sobre 3 puntos (hay 3 preguntas)
+var nota = 0;  //nota de la prueba sobre 10 puntos (hay 10 preguntas)
 
 //**************************************************************************************************** 
 //Después de cargar la página (onload) se definen los eventos sobre los elementos entre otras acciones.
