@@ -1,0 +1,53 @@
+body,
+html {
+    margin: 0px
+}
+
+body {
+    width: 70%;
+    padding-left: 15%;
+    padding-right: 15%
+}
+
+body,
+input,
+select,
+label {
+    font-family: Nimbus sans L;
+    font-size: 2vw
+}
+
+h3 {
+    font-family: Nimbus sans L;
+    font-size: 2vw;
+    color: white;
+}
+
+input,
+select {
+    width: 50%;
+}
+
+input[type=radio] {
+    width: 5%;
+    zoom: 1.5;
+}
+
+input[type=checkbox] {
+    width: 5%;
+    zoom: 1.5;
+}
+
+form {
+    background-color: dodgerblue;
+    padding: 3%;
+}
+
+#logo img {
+    text-align: left;
+    position: fixed;
+    left: 4%;
+    top: 5%;
+    max-width: 15%;
+    max-height: 15%;
+}
