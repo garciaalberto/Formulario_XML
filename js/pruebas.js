@@ -21,26 +21,6 @@ var respuestasRadio = [];
 var preguntasSelectMultiple = [];
 var respuestasSelectMultiple = [];
 
-/* ---------------------------- REFACTORIZACION DICCIONARIO FUTURA ----------------------------
-	
-	var dict = {
-		"select0" : {
-			"indice" : 0;
-			"respuestas" : "perro";
-			"explicacion" : "<explanation>";
-		}
-		"checkbox0" :{
-			"indice" : 4;
-			"respuestas" : [0,2];
-			"explicacion" : "<explanation>";
-		}
-	}
-*/ 
-
-
-//**********************************************************************************************
-//AL CARGAR LA PAGINA
-//**********************************************************************************************
 window.onload = function(){ 
 	//CORREGIR al apretar el botón
 	formContainer=document.getElementById('myform');
@@ -68,10 +48,6 @@ window.onload = function(){
 	xhttp.send();
 }
 
-
-
-// Recuperamos los datos del fichero XML xml/preguntas.xml
-// xmlDOC es el documento leido XML. 
 function gestionarXml(dadesXml){
 	var xmlDoc = dadesXml.responseXML; //Parse XML to xmlDoc
 	var tipo = "";
@@ -122,11 +98,7 @@ function gestionarXml(dadesXml){
 	imprimirBotonCorregir();
 }
  
-//**********************************************************************************************
-//IMPRIMIR EN EL HTML
-//**********************************************************************************************
 function imprimirTituloPregunta(i, xmlDoc){
-	//se le pasa una pregunta del xml y busca su atributo title y lo plasma en un <h3> en el html
 	var tituloPregunta = document.createElement("h3");
 	tituloPregunta.innerHTML=xmlDoc.getElementsByTagName("title")[i].innerHTML;
 	document.getElementById('pregunta'+i).appendChild(tituloPregunta);
@@ -215,13 +187,7 @@ function imprimirBotonCorregir() {
 	formContainer.appendChild(botonCorregir);
 }
 
-//**********************************************************************************************
-//CORREGIR LAS PREGUNTAS
-//**********************************************************************************************
 function corregirSelect() {
-  //Compara el índice seleccionado con el valor del íncide que hay en el xml (<answer>2</answer>)
-  //para implementarlo con type radio, usar value para enumerar las opciones <input type='radio' value='1'>...
-  //luego comparar ese value con el value guardado en answer
   for (i = 0; i<preguntasSelect.length; i++) {
   	var sel = document.getElementById("pregunta"+preguntasSelect[i]).getElementsByTagName("select")[0];
   	var respuesta = respuestasSelect[i];
@@ -334,16 +300,10 @@ function agregarRespuestas(i, xmlDoc, arrayRespuestas, arrayValorRespuestas) {
 	var valorRespuesta = [];
 	for (j= 0; j <xmlDoc.getElementsByTagName("question")[i].getElementsByTagName("answer").length; j++) {
 		respuestasPregunta.push(parseInt(xmlDoc.getElementsByTagName("question")[i].getElementsByTagName("answer")[j].innerHTML));
-		// REVISAR: valorRespuesta.push("hola");
 	}
 	arrayRespuestas.push(respuestasPregunta);
-	//revisar ERROR
-	//arrayValorRespuestas.push(valorRespuesta);
 }
 
-//**********************************************************************************************
-//UTILIDADES
-//**********************************************************************************************
 function crearDivPregunta(i) {
 	var div = document.createElement('div');
 	div.id = "pregunta"+i;
@@ -366,17 +326,14 @@ function presentarNota(){
 	darRespuestaHtml("Nota: "+nota.toFixed(2)+" puntos sobre 10");
 }
 
-//funcion para hacer que el select multiple se pueda aplicar sin la tecla Ctrl
 window.onmousedown = function (e) {
     var el = e.target;
     if (el.tagName.toLowerCase() == 'option' && el.parentNode.hasAttribute('multiple')) {
         e.preventDefault();
 
-        // toggle selection
         if (el.hasAttribute('selected')) el.removeAttribute('selected');
         else el.setAttribute('selected', '');
 
-        // hack to correct buggy behavior
         var select = el.parentNode.cloneNode(true);
         el.parentNode.parentNode.replaceChild(select, el.parentNode);
     }
@@ -393,10 +350,3 @@ function comprobar(){
 	}
 	return true;
 }
-
-/*
-// POSIBLES REFACTORIZACIONES FUTURAS
-//
-// Convertir todos los arrays en un diccionario
-//
-*/
