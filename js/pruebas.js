@@ -321,7 +321,7 @@ function presentarNota(){
 	if (nota.toFixed(2) > 5) {
 		darRespuestaHtml("Enhorabuena!");
 	} else {
-		darRespuestaHtml("Más suerte la próxima vez");
+		darRespuestaHtml("Más suerte la próxima vez...");
 	}
 				 
 }
