@@ -1,6 +1,3 @@
-//**********************************************************************************************
-//VARIABLES DE CONTROL
-//**********************************************************************************************
 var formContainer = null;
 var nota = 0.0;
 
@@ -22,7 +19,6 @@ var preguntasSelectMultiple = [];
 var respuestasSelectMultiple = [];
 
 window.onload = function(){ 
-	//CORREGIR al apretar el botón
 	formContainer=document.getElementById('myform');
 	formContainer.onsubmit=function(){
 		inicializar();
