@@ -27,9 +27,6 @@ window.onload = function(){
  xhttp.send();
 }
 
-//****************************************************************************************************
-// Recuperamos los datos del fichero XML xml/preguntas.xml
-// xmlDOC es el documento leido XML. 
 function gestionarXml(dadesXml){
  var xmlDoc = dadesXml.responseXML; 
  var tituloInput=xmlDoc.getElementsByTagName("title")[0].innerHTML;
